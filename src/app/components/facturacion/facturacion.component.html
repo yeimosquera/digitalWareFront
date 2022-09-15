@@ -1,0 +1,15 @@
+<ng-container>
+  <div class="registrobt">
+    <dx-button text="Registro Facturación" routerLink="/facturacion" type="default">
+    </dx-button>
+  </div>
+  <dx-data-grid id="gridContainer" [dataSource]="dataSource" [showBorders]="true" [remoteOperations]="true">
+    <dxi-column dataField="primer_nombre" caption="Cliente"> </dxi-column>
+    <dxi-column dataField="nombre" caption="Producto"> </dxi-column>
+    <dxi-column dataField="precio" caption="Precio"> </dxi-column>
+    <dxi-column dataField="cantidad" caption="Cantidad"> </dxi-column>
+    <dxi-column dataField="fecha" caption="Fecha Compra"> </dxi-column>
+    <dxo-paging [pageSize]="10"></dxo-paging>
+    <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="[5, 10, 20]"></dxo-pager>
+  </dx-data-grid>
+</ng-container>

@@ -1,0 +1,45 @@
+<div class="container">
+  <form action="">
+    <div class="row">
+      <div class="col-md-6">
+        <label for="cliente" class="form-label">Cliente</label>
+        <select id="cliente" name="cliente" class="form-select" [(ngModel)]="cliente">
+          <option *ngFor="let obj of clientes" [value]="obj.pK_IdCliente">{{obj.primer_nombre}}</option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <label for="producto" class="form-label">Producto</label>
+        <select id="producto" [(ngModel)]="producto" (change)="calcularPrecio()" class="form-select" name="producto">
+          <option *ngFor="let obj of productos" [value]="obj.pK_IdProducto">{{obj.nombre}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <label for="cantidad" class="form-label">Cantidad</label>
+        <input type="number" (change)="calcularPrecio()" class="form-control" [(ngModel)]="cantidad" id="cantidad"
+          name="cantidad">
+      </div>
+      <div class="col-md-6">
+        <label for="precioUnitario" class="form-label">Precio Unitario</label>
+        <input [(ngModel)]="precioUnitario" disabled type="number" class="form-control" id="precioUnitario"
+          name="precioUnitario">
+      </div>
+    </div>
+    <div class="row" style="margin-top: 1%; font-weight: bold;">
+      <div>
+        <label for="precioTotal" class="form-label">Total:</label>
+        <input [(ngModel)]="precioTotal" disabled type="number" class="form-control" id="precioTotal"
+          name="precioTotal">
+      </div>
+    </div><br>
+    <div class="center row">
+      <div style="text-align: right;" class="col-6">
+        <button (click)="crarFactura()" class="btn btn-primary">Guardar</button>
+      </div>
+      <div style="text-align: left;" class="col-6">
+        <button routerLink="/" class="btn btn-primary">Facturas</button>
+      </div>
+    </div>
+  </form>
+</div>
